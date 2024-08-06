@@ -14,6 +14,7 @@ class QuestionController extends Controller
             'question' => [
                 'required',
                 'min:10',
+                //Cria regra que valida a interrogação no final da questão
                 function (string $attribute, mixed $value, Closure $fail) {
 
                     if ($value[strlen($value) - 1] != '?') {
