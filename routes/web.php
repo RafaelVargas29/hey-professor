@@ -4,6 +4,16 @@ use App\Http\Controllers\{ProfileController, QuestionController};
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+
+    // Verifica se estou acessando pelo localhost
+    if(app()->isLocal()) {
+        // Loga automaticamente utilizando o loginId número 1
+        auth()->loginUsingId(1);
+
+        // Leva diretamente para a roda dashboard
+        return to_route('dashboard');
+    }
+
     return view('welcome');
 });
 
