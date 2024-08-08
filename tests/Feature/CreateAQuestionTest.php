@@ -8,6 +8,7 @@ it('should be able to create a new question bigger than 255 characters', functio
     // Aarrange :: Preparar
     $user = User::factory()->create();
 
+    /** @var User $user */
     actingAs($user);
 
     // Act :: Agir
@@ -27,6 +28,7 @@ it('should check if ends with question mark ?', function () {
     // Arrange :: Preparar
     $user = User::factory()->create();
 
+    /** @var User $user */
     actingAs($user);
 
     // Act :: Agir
@@ -46,6 +48,7 @@ it('should have at least 10 characters', function () {
     // Arrange :: Preparar
     $user = User::factory()->create();
 
+    /** @var User $user */
     actingAs($user);
 
     // Act :: Agir
