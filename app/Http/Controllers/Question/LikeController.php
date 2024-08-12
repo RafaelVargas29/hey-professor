@@ -13,7 +13,7 @@ class LikeController extends Controller
     public function __invoke(Question $question): RedirectResponse
     {
         // Diz que o usuário gostou da pergunta
-        auth()->user()->like($question);
+        user()->like($question); // Para usar essa linha desse jeito precisa mexer o composer.json e criar um diretório Support com um arquivo Function.php com função global
 
         // Faz com que retorne para o ponto em que estava antes de chamar essa função estava
         return back();

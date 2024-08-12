@@ -61,11 +61,14 @@ class User extends Authenticatable implements MustVerifyEmail
     public function like(Question $question): void
     {
 
-        // Está criando uma like para um id de pergunta de um um id de usuário
-        $this->votes()->create([
-            'question_id' => $question->id,
-            'like'        => 1,
-            'unlike'      => 0,
-        ]);
+        // Está atualizando ou criando uma like para um id de pergunta de um um id de usuário
+        $this->votes()->updateOrCreate(
+            ['question_id' => $question->id], // Verififca se a pergunta é a mesma
+
+            [
+                'like'   => 1,
+                'unlike' => 0,
+            ]
+        );
     }
 }
