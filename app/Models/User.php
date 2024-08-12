@@ -50,6 +50,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     //funcão de voto. Diz que um usuário pode ter muitos votos
+    /**
+     * @return HasMany<Vote> //Solução para resolver erro TRelatedModel
+    */
     public function votes(): HasMany
     {
         return $this->hasMany(Vote::class);
