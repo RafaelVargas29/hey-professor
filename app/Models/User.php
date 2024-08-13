@@ -71,4 +71,18 @@ class User extends Authenticatable implements MustVerifyEmail
             ]
         );
     }
+
+    public function unlike(Question $question): void
+    {
+
+        // Está atualizando ou criando uma unlike para um id de pergunta de um um id de usuário
+        $this->votes()->updateOrCreate(
+            ['question_id' => $question->id], // Verififca se a pergunta é a mesma
+
+            [
+                'like'   => 0,
+                'unlike' => 1,
+            ]
+        );
+    }
 }
