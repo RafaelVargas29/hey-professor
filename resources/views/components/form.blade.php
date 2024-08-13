@@ -6,7 +6,7 @@
     'delete' => null
 ])
 
-<form action="{{ route('question.store')}}" class="max-w-sm mx-auto" method="POST">
+<form action="{{ $action }}" class="max-w-sm mx-auto" method="POST" {{ $attributes }}>
     <!-- Diretiva que adiciona um toke de validação ao meu formulário-->
     @csrf
 
