@@ -15,7 +15,9 @@ class DashboardController extends Controller
         return view('dashboard', [
             //Variável que estou passando como parâmetro e que posso usar na view dashboard
             // Question::all() está instnaciando a Model Question e pegando tudo que tem na tabela correspondente a ela
-            'questions' => Question::all(),
+            'questions' => Question::withSum('votes', 'like')
+                ->withSum('votes', 'unlike')
+                ->get(),
         ]);
     }
 }
