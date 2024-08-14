@@ -18,6 +18,7 @@ class QuestionFactory extends Factory
     {
         return [
             'question' => fake()->realText(50), //Cria uma questão com no máximo 50 caracteres
+            'draft'    => fake()->boolean,
         ];
     }
 }
