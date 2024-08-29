@@ -85,4 +85,10 @@ class User extends Authenticatable implements MustVerifyEmail
             ]
         );
     }
+
+    public function questions(): HasMany
+    {
+        // Diz que um usuário pode ter várias questões
+        return $this->hasMany(Question::class, 'created_by');
+    }
 }
